@@ -1,5 +1,4 @@
-from ex1.creature import Creature, Sproutling, Shiftling, Bloomelle, Morphagon
-from ex1.factory import CreatureFactory, HealingCreatureFactory, TransformCreatureFactory
+from ex1.factory import HealingCreatureFactory, TransformCreatureFactory
 
 def main() -> None:
     print("Testing Creature with Healing Capability")
