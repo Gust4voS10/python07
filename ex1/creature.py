@@ -21,11 +21,12 @@ class Bloomelle(Creature, HealCapability):
         return f"{self.name} uses Petal Dance!"
     
     def heal(self, target: Creature) -> str:
-        return f"{self.name} heals itself and others for large amount"
+        return f"{self.name} heals itself and {target} for large amount"
     
 
 class Shiftling(Creature, TransformCapability):
     def __init__(self):
+        self.transformed = False
         super().__init__("Shiftling", "Normal")
     
     def attack(self):
@@ -43,6 +44,7 @@ class Shiftling(Creature, TransformCapability):
 
 class Morphagon(Creature, TransformCapability):
     def __init__(self):
+        self.transformed = False
         super().__init__("Morphagon", "Normal/Dragon")
     
     def attack(self):
