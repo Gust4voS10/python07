@@ -1,46 +1,46 @@
 from abc import ABC, abstractmethod
 
 
-class creature(ABC):
+class Creature(ABC):
     def __init__(self, name: str, type: str):
         self.name = name
         self.type = type
 
     @abstractmethod
-    def atack(self):
+    def attack(self):
         pass
 
     def describe(self):
         return f"{self.name} is a {self.type} type Creature"
 
 
-class Flameling(Pokemon):
+class Flameling(Creature):
     def __init__(self):
-        super().__init__("flameling", "fire")
+        super().__init__("Flameling", "Fire")
     
-    def atack(self):
-        return f"{self.name} used Ember!"
+    def attack(self):
+        return f"{self.name} uses Ember!"
 
 
-class Pyrodon(Pokemon):
+class Pyrodon(Creature):
     def __init__(self):
-        super().__init__("Pyrodon", "fire")
+        super().__init__("Pyrodon", "Fire/Flying")
 
-    def atack(self):
-        return f"{self.name} used fire Flamethrower!"
+    def attack(self):
+        return f"{self.name} uses Fire Flamethrower!"
 
 
-class Aquanub(Pokemon):
+class Aquabub(Creature):
     def __init__(self):
-        super().__init__("Aquanub", "water")
+        super().__init__("Aquabub", "Water")
 
-    def atack(self):
-        return f"{self.name} used water gun!"
+    def attack(self):
+        return f"{self.name} uses Water Gun!"
 
 
-class Torragon(Pokemon):
+class Torragon(Creature):
     def __init__(self):
-        super().__init__("Torragon", "water")
+        super().__init__("Torragon", "Water")
 
-    def atack(self):
-        return f"{self.name} used bubble beam!"
+    def attack(self):
+        return f"{self.name} uses Hydro Pump!"

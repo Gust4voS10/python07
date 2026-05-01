@@ -1,5 +1,5 @@
-from .creature import creature
-from .factory import CreatureFactory, FlameFactory, AquaFactory
+from ex0.creature import Creature
+from ex0.factory import CreatureFactory, FlameFactory, AquaFactory
 
 
-___all__ = ["creature", "CreatureFactory", "FlameFactory", "AquaFactory"]
+CreatureFactory, FlameFactory, AquaFactory, Creature
