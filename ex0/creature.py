@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
 
-class Pokemon(ABC):
+class creature(ABC):
     def __init__(self, name: str, type: str):
         self.name = name
         self.type = type
@@ -11,36 +11,36 @@ class Pokemon(ABC):
         pass
 
     def describe(self):
-        return f"{self.name} is a {self.type} type pokemon"
+        return f"{self.name} is a {self.type} type Creature"
 
 
-class chamander(Pokemon):
+class Flameling(Pokemon):
     def __init__(self):
-        super().__init__("charmander", "fire")
+        super().__init__("flameling", "fire")
     
     def atack(self):
-        return f"{self.name} used flamethrower!"
+        return f"{self.name} used Ember!"
 
 
-class ponyta(Pokemon):
+class Pyrodon(Pokemon):
     def __init__(self):
-        super().__init__("ponyta", "fire")
+        super().__init__("Pyrodon", "fire")
 
     def atack(self):
-        return f"{self.name} used fire blast!"
+        return f"{self.name} used fire Flamethrower!"
 
 
-class squirtle(Pokemon):
+class Aquanub(Pokemon):
     def __init__(self):
-        super().__init__("squirtle", "water")
+        super().__init__("Aquanub", "water")
 
     def atack(self):
         return f"{self.name} used water gun!"
 
 
-class poliwag(Pokemon):
+class Torragon(Pokemon):
     def __init__(self):
-        super().__init__("poliwag", "water")
+        super().__init__("Torragon", "water")
 
     def atack(self):
         return f"{self.name} used bubble beam!"
