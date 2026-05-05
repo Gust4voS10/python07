@@ -5,27 +5,27 @@ from ex1.factory import HealingCreatureFactory, TransformCreatureFactory
 
 
 def battle(opponents: list[tuple[Creature, BattleStrategy]]) -> None:
-    size: int = len(opponents)
-    i: int = 0
+    size = len(opponents)
+    i = 0
     while (i < size):
-        j: int = i + 1
+        j = i + 1
         while (j < size):
-            poke1: Creature = opponents[i][0]
+            creat1: Creature = opponents[i][0]
             strat1: BattleStrategy = opponents[i][1]
-            poke2: Creature = opponents[j][0]
+            creat2: Creature = opponents[j][0]
             strat2: BattleStrategy = opponents[j][1]
             print(" * Battle *")
-            print(poke1.describe())
-            print("vs.")
-            print(poke2.describe())
-            print("now fight!")
+            print(creat1.describe())
+            print(" vs.")
+            print(creat2.describe())
+            print(" now fight!")
             try:
-                strat1.act(poke1, poke2)
+                strat1.act(creat1, creat2)
             except ValueError as e:
                 print(f"Battle error, aborting tournament: {e}")
                 return
             try:
-                strat2.act(poke2, poke1)
+                strat2.act(creat2, creat1)
             except ValueError as e:
                 print(f"Battle error, aborting tournament: {e}")
                 return
@@ -43,7 +43,6 @@ def main() -> None:
     flameling = fire_factory.create_base()
     aquabub = water_factory.create_base()
     sproutling = heal_factory.create_base()
-    bloomelle = heal_factory.create_evolved()
     shiftling = trans_factory.create_base()
 
     normal: NormalStrategy = NormalStrategy()
@@ -52,17 +51,21 @@ def main() -> None:
 
     bt: list[list[tuple[Creature, BattleStrategy]]] = [[(flameling, normal),
                                                        (sproutling, heal)],
-                                                      [(flameling, aggressive),
+                                                       [(flameling,
+                                                         aggressive),
                                                        (sproutling, heal)],
-                                                      [(aquabub, normal),
+                                                       [(aquabub, normal),
                                                        (sproutling, heal),
-                                                       (shiftling, aggressive)]]
+                                                       (shiftling,
+                                                        aggressive)]]
     for i, op in enumerate(bt):
         descriptions = ["basic", "error", "multiple"]
         print(f"Tournament {i} ({descriptions[i]})")
-        print("[" + ", ".join(f"({creature.name}+{strategy.__class__.__name__.replace('Strategy', '')})" for creature, strategy in op) + "]")
+        print("[ " + ", ".join(
+            f"({creature.name}+{strategy.__class__.__name__.replace(
+                'Strategy', '')})" for creature, strategy in op) + "]")
         print("*** Tournament ***")
-        print(f"{len(op)} opponents involved")
+        print(f"{len(op)} opponents involved\n")
         try:
             battle(op)
         except Exception as e:

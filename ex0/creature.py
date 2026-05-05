@@ -17,7 +17,7 @@ class Creature(ABC):
 class Flameling(Creature):
     def __init__(self):
         super().__init__("Flameling", "Fire")
-    
+
     def attack(self):
         return f"{self.name} uses Ember!"
 

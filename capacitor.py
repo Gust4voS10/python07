@@ -1,5 +1,6 @@
 from ex1.factory import HealingCreatureFactory, TransformCreatureFactory
 
+
 def main() -> None:
     print("Testing Creature with Healing Capability")
     print()
@@ -12,7 +13,7 @@ def main() -> None:
     print(f"{Sprou.heal(Sprou)}\n")
     print(bloo.describe())
     print(bloo.attack())
-    print(f"{bloo.heal(bloo)}\n")
+    print(f"{bloo.heal(Sprou.__class__.__name__)}\n")
 
     print("Testing Creature with Transform Capability\n")
 
