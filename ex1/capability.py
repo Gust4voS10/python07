@@ -1,13 +1,13 @@
-from abc import abstractmethod
+from abc import ABC, abstractmethod
 
 
-class HealCapability:
+class HealCapability(ABC):
     @abstractmethod
-    def heal(self, target: str) -> str:
+    def heal(self) -> str:
         ...
 
 
-class TransformCapability:
+class TransformCapability(ABC):
     @abstractmethod
     def transform(self) -> str:
         ...

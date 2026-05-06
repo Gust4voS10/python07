@@ -21,12 +21,12 @@ def battle(opponents: list[tuple[Creature, BattleStrategy]]) -> None:
             print(creat2.describe())
             print(" now fight!")
             try:
-                strat1.act(creat1, creat2)
+                strat1.act(creat1)
             except ValueError as e:
                 print(f"Battle error, aborting tournament: {e}")
                 return
             try:
-                strat2.act(creat2, creat1)
+                strat2.act(creat2)
             except ValueError as e:
                 print(f"Battle error, aborting tournament: {e}")
                 return

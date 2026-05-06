@@ -10,7 +10,7 @@ class BattleStrategy(ABC):
         ...
 
     @abstractmethod
-    def act(self, creature: Creature, target: Creature) -> None:
+    def act(self, creature: Creature) -> None:
         ...
 
 
@@ -19,8 +19,7 @@ class NormalStrategy(BattleStrategy):
         creature
         return True
 
-    def act(self, creature: Creature, target: Creature) -> None:
-        target
+    def act(self, creature: Creature) -> None:
         print(creature.attack())
 
 
@@ -30,8 +29,7 @@ class AggressiveStrategy(BattleStrategy):
             return True
         return False
 
-    def act(self, creature: Creature, targe: Creature) -> None:
-        targe
+    def act(self, creature: Creature) -> None:
         if (self.is_valid(creature)):
             creat_copy = cast(TransformCapability, creature)
             print(creat_copy.transform())
@@ -49,11 +47,11 @@ class DefensiveStrategy(BattleStrategy):
         else:
             return False
 
-    def act(self, creature: Creature, target: Creature) -> None:
+    def act(self, creature: Creature) -> None:
         if (self.is_valid(creature)):
             creat_copy = cast(HealCapability, creature)
             print(creature.attack())
-            print(creat_copy.heal(target.name))
+            print(creat_copy.heal())
         else:
             raise ValueError(f"Invalid Creature {creature.name} "
                              "for this defensive strategy")
