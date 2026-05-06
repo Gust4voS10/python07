@@ -1,6 +1,7 @@
 from ex1.factory import HealingCreatureFactory, TransformCreatureFactory
 from ex1.capability import HealCapability, TransformCapability
 
+
 def main() -> None:
     print("Testing Creature with Healing Capability")
     print()
@@ -28,14 +29,16 @@ def main() -> None:
     if isinstance(shif, TransformCapability):
         print(shif.transform())
     print(shif.attack())
-    print(shif.revert())
+    if isinstance(shif, TransformCapability):
+        print(shif.revert())
     print()
     print(Morph.describe())
     print(Morph.attack())
     if isinstance(Morph, TransformCapability):
         print(Morph.transform())
     print(Morph.attack())
-    print(Morph.revert())
+    if isinstance(Morph, TransformCapability):
+        print(Morph.revert())
 
 
 if (__name__ == "__main__"):
