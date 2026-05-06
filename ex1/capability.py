@@ -1,10 +1,9 @@
 from abc import abstractmethod
-from ex0.factory import Creature
 
 
 class HealCapability:
     @abstractmethod
-    def heal(self, target: Creature) -> str:
+    def heal(self, target: str) -> str:
         ...
 
 

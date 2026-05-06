@@ -1,6 +1,7 @@
 from ex2.strategy import NormalStrategy, AggressiveStrategy
 from ex2.strategy import DefensiveStrategy, BattleStrategy
-from ex0.factory import Creature, FlameFactory, AquaFactory
+from ex0.factory import FlameFactory, AquaFactory
+from ex0.creatures import Creature
 from ex1.factory import HealingCreatureFactory, TransformCreatureFactory
 
 

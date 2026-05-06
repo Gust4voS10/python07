@@ -1,4 +1,4 @@
-from ex0.creature import Creature
+from ex0.creatures import Creature
 from ex0.factory import CreatureFactory, FlameFactory, AquaFactory
 
 
@@ -26,6 +26,7 @@ if (__name__ == "__main__"):
     flame = FlameFactory()
     aqua = AquaFactory()
     pokeshowdown(flame)
+    print()
     pokeshowdown(aqua)
     torchic = flame.create_base()
     popplio = aqua.create_base()

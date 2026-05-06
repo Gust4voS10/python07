@@ -10,10 +10,10 @@ def main() -> None:
     bloo = heal_factory.create_evolved()
     print(Sprou.describe())
     print(Sprou.attack())
-    print(f"{Sprou.heal(Sprou)}\n")
+    print(f"{Sprou.heal("for a small")}\n")
     print(bloo.describe())
     print(bloo.attack())
-    print(f"{bloo.heal(Sprou.__class__.__name__)}\n")
+    print(f"{bloo.heal("others")}\n")
 
     print("Testing Creature with Transform Capability\n")
 

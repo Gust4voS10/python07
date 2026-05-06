@@ -1,15 +1,14 @@
 from abc import ABC, abstractmethod
-from ex0.creature import Creature
+from ex0.creatures import Creature
 from ex1 import HealCapability, TransformCapability
 from typing import cast
 
 
-
-class BattleStrategy:
+class BattleStrategy(ABC):
     @abstractmethod
     def is_valid(self, creature: Creature) -> bool:
         ...
-    
+
     @abstractmethod
     def act(self, creature: Creature, target: Creature) -> None:
         ...
@@ -17,21 +16,23 @@ class BattleStrategy:
 
 class NormalStrategy(BattleStrategy):
     def is_valid(self, creature: Creature) -> bool:
+        creature
         return True
-    
+
     def act(self, creature: Creature, target: Creature) -> None:
         target
         print(creature.attack())
 
 
 class AggressiveStrategy(BattleStrategy):
-    def is_valid(self, creature: Creature):
+    def is_valid(self, creature: Creature) -> bool:
         if (isinstance(creature, TransformCapability)):
             return True
         return False
-    
-    def act(self, creature, target):
-        if(self.is_valid(creature)):
+
+    def act(self, creature: Creature, targe: Creature) -> None:
+        targe
+        if (self.is_valid(creature)):
             creat_copy = cast(TransformCapability, creature)
             print(creat_copy.transform())
             print(creature.attack())
@@ -47,12 +48,12 @@ class DefensiveStrategy(BattleStrategy):
             return True
         else:
             return False
-    
+
     def act(self, creature: Creature, target: Creature) -> None:
         if (self.is_valid(creature)):
             creat_copy = cast(HealCapability, creature)
             print(creature.attack())
-            print(creat_copy.heal(creature))
+            print(creat_copy.heal(target.name))
         else:
             raise ValueError(f"Invalid Creature {creature.name} "
                              "for this defensive strategy")
